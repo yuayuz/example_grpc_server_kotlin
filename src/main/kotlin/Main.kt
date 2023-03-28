@@ -1,7 +1,8 @@
-fun main(args: Array<String>) {
-    println("Hello World!")
+import service.HelloWorldServer
 
-    // Try adding program arguments via Run/Debug configuration.
-    // Learn more about running applications: https://www.jetbrains.com/help/idea/running-applications.html.
-    println("Program arguments: ${args.joinToString()}")
+fun main(args: Array<String>) {
+    val port = 8980
+    val server = HelloWorldServer(port)
+    server.start()
+    server.blockUntilShutdown()
 }
